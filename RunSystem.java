@@ -128,16 +128,41 @@ class Admin {
 
     public void adminMenu() {
         if (!authenticateAdmin()) {
-            System.out.print("Login Unsuccessful. Please check your password or username. ");
+            System.out.println("Login Unsuccessful. Please check your password or username. ");
             return;
         }
-        while (true) {
-            System.out.println("========================");
-            System.out.println("|      Admin Menu      |");
-            System.out.println("========================");
-            System.out.println("1 - Edit Record\n2 - Delete Record\n3 - Check Record\n4- Exit");
-            int choice = input.nextInt();
+        try {
+            while (true) {
+                System.out.println("========================");
+                System.out.println("|      Admin Menu      |");
+                System.out.println("========================");
+                System.out.println("1 - Edit Record\n2 - Delete Record\n3 - Check Record\n4 - Exit");
+                int choice = input.nextInt();
+
+                switch (choice) {
+                    case 1 -> {
+                    }
+                    case 2 -> {
+                    }
+                    case 3 -> {
+                    }
+                    case 4 -> {
+                        System.out.println("Are you sure you want to quit? (Y/N)");
+                        String confirm = input.nextLine().trim();
+
+                        if (confirm.equalsIgnoreCase("Y")) {
+                            System.out.println("Exiting the Admin Mode.");
+                            return;
+                        }
+                    }
+                    default -> System.out.println("Invalid Input");
+
+                }
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number. ");
         }
+
     }
 
 }
